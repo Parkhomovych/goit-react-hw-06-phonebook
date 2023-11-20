@@ -2,7 +2,7 @@
 import { Form } from './Form/Form';
 import { ContactsList } from './ContactsList/ContactsList';
 import { useDispatch } from 'react-redux';
-import { setFilter } from 'redux/actions';
+import { setFilter } from 'redux/filterSlice';
 export const App = () => {
   const dispatch = useDispatch();
   return (

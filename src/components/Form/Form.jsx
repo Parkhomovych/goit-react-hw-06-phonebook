@@ -1,6 +1,7 @@
-import { addContact } from 'redux/actions';
+import { addContact } from 'redux/contactsSlice';
 import { MyButton, MyForm } from './Form.styled';
 import { useDispatch } from 'react-redux';
+import { nanoid } from 'nanoid';
 
 export const Form = () => {
   const dispatch = useDispatch();
@@ -8,10 +9,11 @@ export const Form = () => {
   const handleSubmit = event => {
     event.preventDefault();
     const form = event.target;
-    const inputName = form.children.name;
-    const inputNumber = form.children.number;
+    const name = form.children.name.value;
+    const number = form.children.number.value;
+    const id = nanoid(10)
 
-    dispatch(addContact(inputName.value, inputNumber.value));
+    dispatch(addContact({ name, number,id }));
     form.reset();
   };
   return (
