@@ -1,16 +1,23 @@
+// import { useState, useEffect } from 'react';
+import { Form } from './Form/Form';
+import { ContactsList } from './ContactsList/ContactsList';
+import { useDispatch } from 'react-redux';
+import { setFilter } from 'redux/actions';
 export const App = () => {
+  const dispatch = useDispatch();
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
+    <div style={{ padding: '20px' }}>
+      <h1>Phonebook</h1>
+      <Form />
+      <h2>Contacts</h2>
+      <p>Find contacts by name</p>
+      <input
+        type="text"
+        onChange={e => {
+          dispatch(setFilter(e.target.value));
+        }}
+      />
+      <ContactsList />
     </div>
   );
 };
