@@ -10,8 +10,7 @@ export const Form = () => {
     const form = event.target;
     const inputName = form.children.name;
     const inputNumber = form.children.number;
-    // Викликаємо генератор екшену та передаємо текст завдання для поля payload
-    // Відправляємо результат – екшен створення завдання
+
     dispatch(addContact(inputName.value, inputNumber.value));
     form.reset();
   };
