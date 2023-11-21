@@ -6,7 +6,6 @@ export const ContactsList = () => {
   const contacts = useSelector(getContacts);
   const filter = useSelector(getFilter);
   const dispatch = useDispatch();
-
   return (
     <List>
       {contacts
@@ -26,6 +25,7 @@ export const ContactsList = () => {
             </Button>
           </Item>
         ))}
+
     </List>
   );
 };
